@@ -9,8 +9,7 @@ float p_reproduce_proie=0.5;
 float p_reproduce_predateur=0.35;
 int temps_repousse_herbe=-5;
 
-/* PARTIE 1*/
-/* Fourni: Part 1, exercice 4, question 2 */
+
 Animal *creer_animal(int x, int y, float energie) {
   Animal *na = (Animal *)malloc(sizeof(Animal));
   assert(na);
@@ -24,7 +23,7 @@ Animal *creer_animal(int x, int y, float energie) {
 }
 
 
-/* Fourni: Part 1, exercice 4, question 3 */
+
 Animal *ajouter_en_tete_animal(Animal *liste, Animal *animal) {
   assert(animal);
   assert(!animal->suivant);
@@ -32,7 +31,7 @@ Animal *ajouter_en_tete_animal(Animal *liste, Animal *animal) {
   return animal;
 }
 
-/* A faire. Part 1, exercice 6, question 2 */
+
 void ajouter_animal(int x, int y,  float energie, Animal **liste_animal) {
   assert(liste_animal);
   assert((x<SIZE_X)&&(y<SIZE_Y));
@@ -41,7 +40,7 @@ void ajouter_animal(int x, int y,  float energie, Animal **liste_animal) {
   
 }
 
-/* A Faire. Part 1, exercice 5, question 5 */
+
 void enlever_animal(Animal **liste, Animal *animal) {
   assert(liste);
   assert(animal);
@@ -67,7 +66,7 @@ void enlever_animal(Animal **liste, Animal *animal) {
   return ;
 }
 
-/* A Faire. Part 1, exercice 6, question 7 */
+
 Animal* liberer_liste_animaux(Animal *liste) {
    Animal* tmp;
    while(liste){
@@ -79,13 +78,13 @@ Animal* liberer_liste_animaux(Animal *liste) {
   return NULL;
 }
 
-/* Fourni: part 1, exercice 4, question 4 */
+
 unsigned int compte_animal_rec(Animal *la) {
   if (!la) return 0;
   return 1 + compte_animal_rec(la->suivant);
 }
 
-/* Fourni: part 1, exercice 4, question 4 */
+
 unsigned int compte_animal_it(Animal *la) {
   int cpt=0;
   while (la) {
@@ -97,7 +96,7 @@ unsigned int compte_animal_it(Animal *la) {
 
 
 
-/* Part 1. Exercice 5, question 1, ATTENTION, ce code est susceptible de contenir des erreurs... */
+
 void afficher_ecosys(Animal *liste_proie, Animal *liste_predateur) {
   unsigned int i, j;
   char ecosys[SIZE_X][SIZE_Y];
@@ -158,11 +157,9 @@ void clear_screen() {
   printf("\x1b[2J\x1b[1;1H");  /* code ANSI X3.4 pour effacer l'ecran */
 }
 
-/* PARTIE 2*/
 
-/* Part 2. Exercice 4, question 1 */
 void bouger_animaux(Animal *la) {
-    /*A Completer*/
+    
     while (la){
       if ((float)rand()/RAND_MAX<PCHDIR){
         la->dir[0]=(rand()%3)-1;
@@ -176,9 +173,9 @@ void bouger_animaux(Animal *la) {
 
 }
 
-/* Part 2. Exercice 4, question 3 */
+
 void reproduce(Animal **liste_animal, float p_reproduce) {
-   /*A Completer*/
+   
    Animal *ani=*liste_animal;
    while (ani){
     if (((float)rand()/RAND_MAX)<p_reproduce){
@@ -190,7 +187,6 @@ void reproduce(Animal **liste_animal, float p_reproduce) {
 }
 
 
-/* Part 2. Exercice 6, question 1 */
 void rafraichir_proies(Animal **liste_proie, int monde[SIZE_X][SIZE_Y]) {
   
   if (!*liste_proie) return;
@@ -212,7 +208,7 @@ void rafraichir_proies(Animal **liste_proie, int monde[SIZE_X][SIZE_Y]) {
   reproduce(liste_proie,0.5);
 }
 
-/* Part 2. Exercice 7, question 1 */
+
 Animal *animal_en_XY(Animal *l, int x, int y) {
     Animal* ani=l;
     while (ani){
@@ -222,9 +218,9 @@ Animal *animal_en_XY(Animal *l, int x, int y) {
   return NULL;
 } 
 
-/* Part 2. Exercice 7, question 2 */
+
 void rafraichir_predateurs(Animal **liste_predateur, Animal **liste_proie) {
-   /*A Completer*/
+   
    if (!*liste_predateur) return;
 
    bouger_animaux(*liste_predateur);
@@ -247,7 +243,6 @@ void rafraichir_predateurs(Animal **liste_predateur, Animal **liste_proie) {
     
 }
 
-/* Part 2. Exercice 5, question 2 */
 void rafraichir_monde(int monde[SIZE_X][SIZE_Y]){
 
   for (int i=0;i<SIZE_X;i++){

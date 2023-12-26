@@ -34,9 +34,7 @@ main_test2.o: main_test2.c
 main_ecosys.o: main_ecosys.c 
 	gcc $(CFLAGS) -c main_ecosys.c
 
-#Ou plus simplement
-#%.o:%.c %.h
-#	$(CC)  $(GCC_FLAGS) -c  $<
+
 
 
 clean:

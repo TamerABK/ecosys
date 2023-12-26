@@ -23,12 +23,7 @@ int temps_repousse_herbe=-15;*/
 
 int main(void) {
  
-  /* A completer. Part 2:
-   * exercice 4, questions 2 et 4 
-   * exercice 6, question 2
-   * exercice 7, question 3
-   * exercice 8, question 1
-   */
+  
 srand(2);
 FILE *f=fopen("data.txt","w");
 if (!f){printf("Erreur ouverture %s \n","data.txt"); return 1; }
